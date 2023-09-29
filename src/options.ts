@@ -80,11 +80,11 @@ function capEveryOtherSecond(text: string): string {
   let prevOperation: string = ''
 
   for (let i: number = 0; i < chars.length; i++) {
-    if (chars[i] === ' ') {
+    if (!chars[i].match(/[A-Za-z]/)) {
       continue
     }
 
-    if (prevOperation === 'upper' || i === 0) {
+    if (prevOperation === 'upper' || prevOperation === '') {
       chars[i] = chars[i].toLowerCase();
       prevOperation = 'lower';
     } else {
