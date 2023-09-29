@@ -53,11 +53,11 @@ function capEveryOtherFirst(text: string): string {
   let prevOperation: string = ''
 
   for (let i: number = 0; i < chars.length; i++) {
-    if (chars[i] === ' ') {
+    if (!chars[i].match(/[A-Za-z]/)) {
       continue
     }
 
-    if (prevOperation === 'lower' || i === 0) {
+    if (prevOperation === 'lower' || prevOperation === '') {
       chars[i] = chars[i].toUpperCase();
       prevOperation = 'upper'
     } else {
