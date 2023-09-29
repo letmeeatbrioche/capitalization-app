@@ -38,7 +38,7 @@ test('Capitalizes: Every other letter (capitalizing the first)', () => {
 
 test('Capitalizes: Every other letter (NOT capitalizing the first)', () => {
   expect(capOptions.capEveryOtherSecond('this is a string')).toBe('tHiS iS a StRiNg');
-  expect(capOptions.capEveryOtherSecond('   THIS IS   A STRING   '  )).toBe('   ThIs Is   A sTrInG   '  );
+  expect(capOptions.capEveryOtherSecond('   THIS IS   A STRING   ')).toBe('   tHiS iS   a StRiNg   ');
 
   expect(capOptions.capEveryOtherSecond('LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE. ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR?'
   )).toBe('lOrEm IpSuM dOlOr SiT aMeT. eX aMeT dIcTa In EnIm OfFiCiA eSt GaLiSuM aTqUe. Et VeNiAm CoNsEqUuNtUr VeL rErUm AsPeRiOrEs AuT cOnSeCtEtUr ErRoR?');
