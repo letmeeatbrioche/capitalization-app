@@ -193,21 +193,11 @@ function sentenceCap(text: string): string {
     return text;
   }
 
-  // create an array for sentence-ending punctuation
-  // iterate over text
-  //   every time you find a period, exclamation point, or question mark
-  //     add it to the punctuation array
   let punctuation = text.match(/[.!?]/g);
 
   let sentences: string[] = text.split(/[.!?]/);
 
   let newSentences: string[] = sentences.map((sentence, i) => {
-    // let firstNonSpaceCharacter = sentence[sentence.search(/\S/)];
-    // let firstCharIndex = sentence.indexOf(firstNonSpaceCharacter);
-    // let restOfSentence = sentence.slice(firstCharIndex + 1).toLowerCase();
-    // let leadingSpaces = firstCharIndex > 0 ? ' '.repeat(firstCharIndex) : ''
-    // let cappedSentence = leadingSpaces + firstNonSpaceCharacter.toUpperCase() + restOfSentence;
-    // return cappedSentence;
     if (sentence.trim() === '') {
       return sentence
     }
@@ -227,6 +217,7 @@ function sentenceCap(text: string): string {
       + firstNonSpaceCharacter.toUpperCase()
       + restOfSentence
       + sentenceEnd;
+
     return cappedSentence;
   })
 
