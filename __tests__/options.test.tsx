@@ -59,19 +59,19 @@ test('Capitalizes: The first letter of every word', () => {
 });
 
 test('Capitalizes: Sentence capitalization', () => {
-  expect(capOptions.allUpperCase('this is a string')).toBe('This is a string');
-  expect(capOptions.allUpperCase('   THIS IS A    STRING   ')).toBe('   This is a    string   ');
+  expect(capOptions.sentenceCap('this is a string')).toBe('This is a string');
+  expect(capOptions.sentenceCap('   THIS IS A    STRING   ')).toBe('   This is a    string   ');
 
   // all caps, various punctuation, and extra spaces
-  expect(capOptions.allUpperCase('   LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE!   ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR. QUO ESSE AMET ET VENIAM ANIMI AB NEQUE EIUS EUM ITAQUE RATIONE?   '
+  expect(capOptions.sentenceCap('   LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE!   ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR. QUO ESSE AMET ET VENIAM ANIMI AB NEQUE EIUS EUM ITAQUE RATIONE?   '
   )).toBe('   Lorem ipsum dolor sit amet. Ex amet dicta in enim officia est galisum atque!   Et veniam consequuntur vel rerum asperiores aut consectetur error. Quo esse amet et veniam animi ab neque eius eum itaque ratione?   ');
 
   // all lowercase, various punctuation, and extra spaces
-  expect(capOptions.allUpperCase('   lorem ipsum dolor sit amet. ex amet dicta in enim officia est galisum atque!   et veniam consequuntur vel rerum asperiores aut consectetur error. quo esse amet et veniam animi ab neque eius eum itaque ratione   ?   '
+  expect(capOptions.sentenceCap('   lorem ipsum dolor sit amet. ex amet dicta in enim officia est galisum atque!   et veniam consequuntur vel rerum asperiores aut consectetur error. quo esse amet et veniam animi ab neque eius eum itaque ratione   ?   '
   )).toBe('   LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE!   ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR. QUO ESSE AMET ET VENIAM ANIMI AB NEQUE EIUS EUM ITAQUE RATIONE   ?   ');
 
   // random caps, various punctuation, and extra spaces
-  expect(capOptions.allLowerCase('   Lorem ipsum doloR sit amet? ex amet Dicta IN enim officia est galisum atque!   et veniam consequuntur vel RERUM asperiores AUt consectetur error. qUo esse amet et veniAm animi ab neque eius eum itaque ratione.   '
+  expect(capOptions.sentenceCap('   Lorem ipsum doloR sit amet? ex amet Dicta IN enim officia est galisum atque!   et veniam consequuntur vel RERUM asperiores AUt consectetur error. qUo esse amet et veniAm animi ab neque eius eum itaque ratione.   '
   )).toBe('   Lorem ipsum dolor sit amet? Ex amet dicta in enim officia est galisum atque!   Et veniam consequuntur vel rerum asperiores aut consectetur error. Quo esse amet et veniam animi ab neque eius eum itaque ratione.   ');
 
   // all lowercase and all periods
