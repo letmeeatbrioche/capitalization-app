@@ -53,11 +53,11 @@ function capEveryOtherFirst(text: string): string {
   let prevOperation: string = ''
 
   for (let i: number = 0; i < chars.length; i++) {
-    if (chars[i] === ' ') {
+    if (!chars[i].match(/[A-Za-z]/)) {
       continue
     }
 
-    if (prevOperation === 'lower' || i === 0) {
+    if (prevOperation === 'lower' || prevOperation === '') {
       chars[i] = chars[i].toUpperCase();
       prevOperation = 'upper'
     } else {
@@ -80,11 +80,11 @@ function capEveryOtherSecond(text: string): string {
   let prevOperation: string = ''
 
   for (let i: number = 0; i < chars.length; i++) {
-    if (chars[i] === ' ') {
+    if (!chars[i].match(/[A-Za-z]/)) {
       continue
     }
 
-    if (prevOperation === 'upper' || i === 0) {
+    if (prevOperation === 'upper' || prevOperation === '') {
       chars[i] = chars[i].toLowerCase();
       prevOperation = 'lower';
     } else {
@@ -101,14 +101,85 @@ function capEveryWord(text: string): string {
     return text;
   }
 
-  let words: string[] = text.split(' ');
+  // Method 2
+  //   iterate over the string
+  //     save each run of characters and spaces as elements in an array
+  //   map over the array, each string
+  //    if the string starts with a letter, capitalize it and lowercase the rest of the string
+  //    if the string does NOT start with a letter, do nothing
+  // turn array back into string and return it
 
-  let newWords: string[] = words.map((word: string) => {
-    let newWord: string = word[0].toUpperCase() + word.slice(1).toLowerCase();
-    return newWord;
-  })
+  // Create a "words" array, set to nothing
+  // Create a "word" variable, set to empty string
+  // Iterate over the input text
+  //   Iterate until you have a run of characters that's all spaces or no spaces
+  //   Save each run to the array
+  // Set a variable to a map over the array
+  //   If the string element starts with a letter
+  //     Capitalize it & lowercase the rest (check they're letters first) & return the new string
+  //   Otherwise (if the string does not start with a letter)
+  //     Return the string
+  // Return the mapped array joined back into a string
 
-  return newWords.join(' ');
+  let words: string[] = [];
+  let word: string = '';
+  for (let i: number = 0; i < text.length; i++) {
+    // if current char is a space and word variable is spaces or empty
+    if (text[i] === ' ') {
+      if (i === 0 || word.trim() === '') {
+        word = word + text[i];
+        if (i === text.length - 1) {
+          words.push(word);
+        }
+      } else {
+        words.push(word); // pushes the current word of non-spaces to the words array
+        word = text[i];
+      }
+    // if current char is not a space or letter
+    } else if (!text[i].match(/[A-Za-z\s]/)) {
+      if (!word.match(/[A-Za-z\s]/g)) {
+        word = word + text[i];
+        if (i === text.length - 1) {
+          words.push(word);
+        }
+      } else {
+        words.push(word);
+        word = text[i];
+        if (i === text.length - 1) {
+          words.push(word);
+        }
+      }
+    }
+    // otherwise (char is a letter)
+    else if (text[i].match(/[A-Za-z]/)) {
+      if (!word.match(/[^A-Za-z]/g)) { // if word is all letters or is empty
+        if (word === '') {
+          word = text[i].toUpperCase();
+        } else {
+          word = word + text[i].toLowerCase();
+        }
+        if (i === text.length - 1) {
+          words.push(word);
+        }
+      } else {
+        words.push(word);
+        word = text[i].toUpperCase();
+      }
+    }
+  }
+
+  return words.join('');
+
+  // Method 1
+
+  // let words: string[] = text.split(' ');
+
+  // let newWords: string[] = words.map((word: string) => {
+  //   let newWord = word[0].toUpperCase() + word.slice(1).toLowerCase();
+  //   return newWord;
+  // })
+
+  // return newWords.join(' ');
 }
 
 // Turn input into an array of strings for each sentence, separated by a period
@@ -122,17 +193,44 @@ function sentenceCap(text: string): string {
     return text;
   }
 
-  let sentences = text.split('.');
+  // create an array for sentence-ending punctuation
+  // iterate over text
+  //   every time you find a period, exclamation point, or question mark
+  //     add it to the punctuation array
+  let punctuation = text.match(/[.!?]/g);
 
-  let newSentences = sentences.map((sentence) => {
+  let sentences: string[] = text.split(/[.!?]/);
+
+  let newSentences: string[] = sentences.map((sentence, i) => {
+    // let firstNonSpaceCharacter = sentence[sentence.search(/\S/)];
+    // let firstCharIndex = sentence.indexOf(firstNonSpaceCharacter);
+    // let restOfSentence = sentence.slice(firstCharIndex + 1).toLowerCase();
+    // let leadingSpaces = firstCharIndex > 0 ? ' '.repeat(firstCharIndex) : ''
+    // let cappedSentence = leadingSpaces + firstNonSpaceCharacter.toUpperCase() + restOfSentence;
+    // return cappedSentence;
+    if (sentence.trim() === '') {
+      return sentence
+    }
+    let sentenceEnd: string;
     let firstNonSpaceCharacter = sentence[sentence.search(/\S/)];
     let firstCharIndex = sentence.indexOf(firstNonSpaceCharacter);
     let restOfSentence = sentence.slice(firstCharIndex + 1).toLowerCase();
-    let cappedSentence = firstNonSpaceCharacter.toUpperCase() + restOfSentence;
+    let leadingSpaces = firstCharIndex > 0 ? ' '.repeat(firstCharIndex) : '';
+
+    if (punctuation === null) {
+      sentenceEnd = '';
+    } else {
+      sentenceEnd = punctuation[i];
+    }
+
+    let cappedSentence = leadingSpaces
+      + firstNonSpaceCharacter.toUpperCase()
+      + restOfSentence
+      + sentenceEnd;
     return cappedSentence;
   })
 
-  return newSentences.join('. ');
+  return newSentences.join('');
 }
 
 // export {sentenceCap, capEveryWord, capEveryOtherSecond, , allLowerCase, allUpperCase}
