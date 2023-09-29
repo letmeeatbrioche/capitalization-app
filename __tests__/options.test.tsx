@@ -10,7 +10,7 @@ test('Capitalizes: ALL CAPS', () => {
   )).toBe('LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE. ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR. QUO ESSE AMET ET VENIAM ANIMI AB NEQUE EIUS EUM ITAQUE RATIONE?');
 
   expect(capOptions.allUpperCase('   lorem ipsum dolor sit amet. ex amet dicta in enim officia est galisum atque!   et veniam consequuntur vel rerum asperiores aut consectetur error. quo esse amet et veniam animi ab neque eius eum itaque ratione?   '
-  )).toBe('   LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE!   ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR. QUO ESSE AMET ET VENIAM ANIMI AB NEQUE EIUS EUM ITAQUE RATIONE?');
+  )).toBe('   LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE!   ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR. QUO ESSE AMET ET VENIAM ANIMI AB NEQUE EIUS EUM ITAQUE RATIONE?   ');
 });
 
 test('Capitalizes: all lowercase', () => {
@@ -27,7 +27,7 @@ test('Capitalizes: all lowercase', () => {
 
 test('Capitalizes: Every other letter (capitalizing the first)', () => {
   expect(capOptions.capEveryOtherFirst('this is a string')).toBe('ThIs Is A sTrInG');
-  expect(capOptions.capEveryOtherFirst('   THIS IS   A STRING   '  )).toBe('   ThIs Is   A sTrInG   '  );
+  expect(capOptions.capEveryOtherFirst('   THIS IS   A STRING   ')).toBe('   ThIs Is   A sTrInG   ');
 
   expect(capOptions.capEveryOtherFirst('LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE. ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR. QUO ESSE AMET ET VENIAM ANIMI AB NEQUE EIUS EUM ITAQUE RATIONE?'
   )).toBe('LoReM iPsUm DoLoR sIt AmEt. Ex AmEt DiCtA iN eNiM oFfIcIa EsT gAlIsUm AtQuE. eT vEnIaM cOnSeQuUnTuR vEl ReRuM aSpErIoReS aUt CoNsEcTeTuR eRrOr. QuO eSsE aMeT eT vEnIaM aNiMi Ab NeQuE eIuS eUm ItAqUe RaTiOnE?');
