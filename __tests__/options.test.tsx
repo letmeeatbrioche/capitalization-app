@@ -49,7 +49,7 @@ test('Capitalizes: Every other letter (NOT capitalizing the first)', () => {
 
 test('Capitalizes: The first letter of every word', () => {
   expect(capOptions.capEveryWord('this is a string')).toBe('This Is A String');
-  expect(capOptions.capEveryWord('   THIS IS A    STRING   '  )).toBe('   This Is A    String   '  );
+  expect(capOptions.capEveryWord('   THIS IS A    STRING   ')).toBe('   This Is A    String   ');
 
   expect(capOptions.capEveryWord('LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE. ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR?'
   )).toBe('Lorem Ipsum Dolor Sit Amet. Ex Amet Dicta In Enim Officia Est Galisum Atque. Et Veniam Consequuntur Vel Rerum Asperiores Aut Consectetur Error?');
@@ -60,7 +60,7 @@ test('Capitalizes: The first letter of every word', () => {
 
 test('Capitalizes: Sentence capitalization', () => {
   expect(capOptions.allUpperCase('this is a string')).toBe('This is a string');
-  expect(capOptions.allUpperCase('   THIS IS A    STRING   '  )).toBe('   This is a    string   '  );
+  expect(capOptions.allUpperCase('   THIS IS A    STRING   ')).toBe('   This is a    string   ');
 
   // all caps, various punctuation, and extra spaces
   expect(capOptions.allUpperCase('   LOREM IPSUM DOLOR SIT AMET. EX AMET DICTA IN ENIM OFFICIA EST GALISUM ATQUE!   ET VENIAM CONSEQUUNTUR VEL RERUM ASPERIORES AUT CONSECTETUR ERROR. QUO ESSE AMET ET VENIAM ANIMI AB NEQUE EIUS EUM ITAQUE RATIONE?   '
