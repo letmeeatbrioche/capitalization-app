@@ -187,6 +187,9 @@ function capEveryWord(text: string): string {
 //   Lowercase all letters, but capitalize the first non-space letter
 // Join array back into a string
 // Return joined string
+
+// Finished function: subsequent punctuation right after another, like "??" or ".!",
+//   removes all but the first punctuation mark.
 function sentenceCap(text: string): string {
   // console.log('in sentenceCap')
   if (!text) {
@@ -216,7 +219,7 @@ function sentenceCap(text: string): string {
     let cappedSentence = leadingSpaces
       + firstNonSpaceCharacter.toUpperCase()
       + restOfSentence
-      + sentenceEnd;
+      + sentenceEnd ? sentenceEnd : '';
 
     return cappedSentence;
   })
