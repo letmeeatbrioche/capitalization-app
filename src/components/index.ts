@@ -1,4 +1,4 @@
-import Input from "./Input";
+import Form from "./Form";
 import AllCapsOption from "./AllCapsOption";
 import AllLowercaseOption from "./AllLowercaseOption";
 import CapEveryOtherLetterOption from "./CapEveryOtherLetterOption";
@@ -7,7 +7,7 @@ import SentenceCapsOption from "./SentenceCapsOption";
 import Result from "./Result";
 
 export {
-  Input,
+  Form,
   AllCapsOption,
   AllLowercaseOption,
   CapEveryOtherLetterOption,
