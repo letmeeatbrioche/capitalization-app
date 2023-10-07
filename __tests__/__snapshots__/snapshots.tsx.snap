@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <div>
+    <div>
+      <form>
+        <input
+          name="userText"
+          type="text"
+          value=""
+        />
+        <button
+          disabled=""
+          type="submit"
+        >
+          Transform
+        </button>
+        <button
+          type="button"
+        >
+          AllCapsOption
+        </button>
+        <button
+          type="button"
+        >
+          AllLowercaseOption
+        </button>
+        <button
+          type="button"
+        >
+          CapEveryOtherLetter
+        </button>
+        <button
+          type="button"
+        >
+          CapEveryWord
+        </button>
+        <button
+          type="button"
+        >
+          SentenceCaps
+        </button>
+      </form>
+      <h2>
+        Selected: 
+      </h2>
+      <h1>
+        Result: 
+      </h1>
+    </div>
+  </div>
+</div>
+`;
