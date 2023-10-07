@@ -1,7 +1,8 @@
 "use client"
 
 import React, { useState } from "react"
-import { AllCapsOption, AllLowercaseOption, CapEveryOtherLetterOption, CapEveryWordOption, SentenceCapsOption } from ".";
+import { AllCapsOption, AllLowercaseOption, CapEveryOtherLetterOption, CapEveryWordOption, Result, SentenceCapsOption } from ".";
+import { allLowerCase, allUpperCase, capEveryOtherFirst, capEveryWord, sentenceCap } from "utils";
 
 // Component to take in text from user, take a way to transform the text,
 //  and transform it respectively when the "submit" button is clicked.
@@ -9,7 +10,8 @@ import { AllCapsOption, AllLowercaseOption, CapEveryOtherLetterOption, CapEveryW
 const Input = () => {
   const [text, setText] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [selected, setSelected] = useState('')
+  const [selected, setSelected] = useState('');
+  const [transformed, setTransformed] = useState('');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // setSubmitted(false);
@@ -22,7 +24,15 @@ const Input = () => {
     const form = event.target;
     const data = new FormData(form);
     const textEntry = Object.fromEntries(data.entries());
-    console.log('form data:', textEntry);
+    // console.log('form data:', textEntry);
+
+    if (selected === 'All caps') {setTransformed(allUpperCase(text))}
+    if (selected === 'All lowercase') {setTransformed(allLowerCase(text))}
+    if (selected === 'Every other letter') {setTransformed(capEveryOtherFirst(text))}
+    if (selected === 'Every word') {setTransformed(capEveryWord(text))}
+    if (selected === 'Sentence caps') {setTransformed(sentenceCap(text))}
+
+    // console.log('end of submit handler');
   }
 
   const handleOptionClick = (option: string) => {
@@ -42,9 +52,10 @@ const Input = () => {
         <SentenceCapsOption selectOption={() => handleOptionClick('Sentence caps')} />
       </form>
 
-      <h1>{text}</h1>
-
       <h2>Selected: {selected}</h2>
+
+      <Result transformedText={transformed} />
+
     </div>
   )
 }
