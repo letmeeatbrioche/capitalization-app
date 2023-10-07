@@ -152,7 +152,7 @@ function capEveryWord(text: string): string {
     }
     // otherwise (char is a letter)
     else if (text[i].match(/[A-Za-z]/)) {
-      if (!word.match(/[^A-Za-z]/g)) { // if word is all letters or is empty
+      if (word.match(/[^\s]/g)) { // if word contains no spaces
         if (word === '') {
           word = text[i].toUpperCase();
         } else {
@@ -219,7 +219,7 @@ function sentenceCap(text: string): string {
     let cappedSentence = leadingSpaces
       + firstNonSpaceCharacter.toUpperCase()
       + restOfSentence
-      + sentenceEnd ? sentenceEnd : '';
+      + (sentenceEnd ? sentenceEnd : '');
 
     return cappedSentence;
   })
