@@ -1,6 +1,6 @@
-import React from 'react'
+import { TransformedTextProps } from "types"
 
-const Result = ({ transformedText }) => {
+const Result = ({ transformedText }: TransformedTextProps) => {
   return (
     <h1>
       Result: {transformedText}

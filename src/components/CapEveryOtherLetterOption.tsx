@@ -1,6 +1,6 @@
-import React from 'react'
+import { CapEveryOtherLetterOptionProps } from 'types'
 
-const CapEveryOtherLetter = ({ selectOption }) => {
+const CapEveryOtherLetterOption = ({ selectOption }: CapEveryOtherLetterOptionProps) => {
   return (
     <button type='button' onClick={selectOption}>
       CapEveryOtherLetter
@@ -8,4 +8,4 @@ const CapEveryOtherLetter = ({ selectOption }) => {
   )
 }
 
-export default CapEveryOtherLetter
+export default CapEveryOtherLetterOption

@@ -1,6 +1,6 @@
-import React from 'react'
+import { AllCapsOptionProps } from 'types'
 
-const AllCapsOption = ({ selectOption }) => {
+const AllCapsOption = ({ selectOption }: AllCapsOptionProps) => {
   return (
     <button type='button' onClick={selectOption}>
       AllCapsOption

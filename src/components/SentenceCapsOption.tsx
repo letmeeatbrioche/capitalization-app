@@ -1,6 +1,6 @@
-import React from 'react'
+import { SentenceCapsOptionProps } from 'types'
 
-const SentenceCaps = ({ selectOption }) => {
+const SentenceCapsOption = ({ selectOption }: SentenceCapsOptionProps) => {
   return (
     <button type='button' onClick={selectOption}>
       SentenceCaps
@@ -8,4 +8,4 @@ const SentenceCaps = ({ selectOption }) => {
   )
 }
 
-export default SentenceCaps
+export default SentenceCapsOption
