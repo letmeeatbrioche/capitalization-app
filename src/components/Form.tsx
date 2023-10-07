@@ -43,7 +43,9 @@ const Form = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <input name="userText" value={text} type="text" onChange={handleInputChange} />
-        <button type="submit">Submit</button>
+
+        <button type="submit" disabled={selected ? false : true}>Transform</button>
+
         <AllCapsOption selectOption={() => handleOptionClick('All caps')} />
         <AllLowercaseOption selectOption={() => handleOptionClick('All lowercase')} />
         <CapEveryOtherLetterOption selectOption={() => handleOptionClick('Every other letter')} />
