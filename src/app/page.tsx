@@ -1,10 +1,10 @@
-import { Input } from "../components";
+import { Form } from "../components";
 
 export default function Home() {
   return (
     <div>
       Home
-      <Input />
+      <Form />
     </div>
   )
 }
