@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Result = () => {
+const Result = ({ transformedText }) => {
   return (
-    <div>
-      Result
-    </div>
+    <h1>
+      Result: {transformedText}
+    </h1>
   )
 }
 
