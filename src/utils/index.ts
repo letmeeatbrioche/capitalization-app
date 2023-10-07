@@ -1,20 +1,4 @@
-// console.log('RAGGLE FRAGGLE NOW');
-
-// Create a function that capitalizes every letter in a string
-// I - a string
-// O - a string (input string, modified in capitalization)
-// C - None
-// E - If empty input is empty, return input
-
-// Edge case
-// Apply toUpperCase on input string
-// Return input string after applying toUpperCase to it
-
 function allUpperCase(text: string): string {
-  // console.log('in allUpperCase')
-  // If text is an empty string/is falsy
-  //   Return text
-  // Return text modified with toUpperCase method
   if (!text) {
     return text;
   }
@@ -22,33 +6,17 @@ function allUpperCase(text: string): string {
 }
 
 function allLowerCase(text: string): string {
-  // console.log('in allLowerCase')
-  // If text is an empty string/is falsy
-  //   Return text
-  // Return text modified with toLowerCase method
   if (!text) {
     return text;
   }
   return text.toLowerCase();
 }
 
-// Iterate over input
-//   Capitalize the first and every other letter, lowercase all other letters
 function capEveryOtherFirst(text: string): string {
-  // console.log('in capEveryOtherFirst')
   if (!text) {
     return text;
   }
-  // Turn text into an array of characters
-  // Iterate over array
-  //   If the current character is a space, skip/continue
-  //   If the previous operation was uppercase
-  //     Lowercase the current character
-  //   If the previous operation was lowercase (or if i is equal to 0)
-  //     Uppercase the current character
-  //  Return array joined back into a string with the same delimiter
 
-  // const lowerText = text.toLowerCase()
   let chars: string[] = text.split('')
   let prevOperation: string = ''
 
@@ -69,8 +37,6 @@ function capEveryOtherFirst(text: string): string {
   return chars.join('');
 }
 
-// Iterate over input
-//   Capitalize the second and every other letter, lowercase all other letters
 function capEveryOtherSecond(text: string): string {
   if (!text) {
     return text;
@@ -100,26 +66,6 @@ function capEveryWord(text: string): string {
   if (!text) {
     return text;
   }
-
-  // Method 2
-  //   iterate over the string
-  //     save each run of characters and spaces as elements in an array
-  //   map over the array, each string
-  //    if the string starts with a letter, capitalize it and lowercase the rest of the string
-  //    if the string does NOT start with a letter, do nothing
-  // turn array back into string and return it
-
-  // Create a "words" array, set to nothing
-  // Create a "word" variable, set to empty string
-  // Iterate over the input text
-  //   Iterate until you have a run of characters that's all spaces or no spaces
-  //   Save each run to the array
-  // Set a variable to a map over the array
-  //   If the string element starts with a letter
-  //     Capitalize it & lowercase the rest (check they're letters first) & return the new string
-  //   Otherwise (if the string does not start with a letter)
-  //     Return the string
-  // Return the mapped array joined back into a string
 
   let words: string[] = [];
   let word: string = '';
@@ -169,29 +115,9 @@ function capEveryWord(text: string): string {
   }
 
   return words.join('');
-
-  // Method 1
-
-  // let words: string[] = text.split(' ');
-
-  // let newWords: string[] = words.map((word: string) => {
-  //   let newWord = word[0].toUpperCase() + word.slice(1).toLowerCase();
-  //   return newWord;
-  // })
-
-  // return newWords.join(' ');
 }
 
-// Turn input into an array of strings for each sentence, separated by a period
-// Iterate over array of sentences, for each sentence
-//   Lowercase all letters, but capitalize the first non-space letter
-// Join array back into a string
-// Return joined string
-
-// Finished function: subsequent punctuation right after another, like "??" or ".!",
-//   removes all but the first punctuation mark.
 function sentenceCap(text: string): string {
-  // console.log('in sentenceCap')
   if (!text) {
     return text;
   }
@@ -219,7 +145,7 @@ function sentenceCap(text: string): string {
     let cappedSentence = leadingSpaces
       + firstNonSpaceCharacter.toUpperCase()
       + restOfSentence
-      + sentenceEnd ? sentenceEnd : '';
+      + (sentenceEnd ? sentenceEnd : '');
 
     return cappedSentence;
   })
@@ -227,6 +153,5 @@ function sentenceCap(text: string): string {
   return newSentences.join('');
 }
 
-// export {sentenceCap, capEveryWord, capEveryOtherSecond, , allLowerCase, allUpperCase}
 export {allUpperCase, allLowerCase, capEveryOtherFirst, capEveryOtherSecond, capEveryWord, sentenceCap};
 
