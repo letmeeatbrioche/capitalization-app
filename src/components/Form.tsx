@@ -41,7 +41,6 @@ const Form = () => {
 
   return (
     <div>
-      Input Component
       <form onSubmit={handleSubmit}>
         <input name="userText" value={text} type="text" onChange={handleInputChange} />
         <button type="submit">Submit</button>
