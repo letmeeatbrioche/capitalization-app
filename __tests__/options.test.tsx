@@ -1,4 +1,3 @@
-import { experimental_useEffectEvent } from 'react';
 import * as capOptions from '@/options';
 
 test('Capitalizes: ALL CAPS', () => {

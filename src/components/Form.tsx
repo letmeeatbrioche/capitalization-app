@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 import { AllCapsOption, AllLowercaseOption, CapEveryOtherLetterOption, CapEveryWordOption, Result, SentenceCapsOption } from ".";
-import { allLowerCase, allUpperCase, capEveryOtherFirst, capEveryWord, sentenceCap } from "utils";
+import { allLowerCase, allUpperCase, capEveryOtherFirst, capEveryWord, sentenceCap } from "@/utils";
 
 // Component to take in text from user, take a way to transform the text,
 //  and transform it respectively when the "submit" button is clicked.
