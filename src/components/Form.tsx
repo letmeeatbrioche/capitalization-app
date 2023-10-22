@@ -31,10 +31,10 @@ const Form = () => {
       setTransformed(capEveryWord(text));
     } else if (formData.option === 'Sentence caps') {
       setTransformed(sentenceCap(text));
-    } else if (data.has('first')) {
-      setTransformed(capEveryOtherFirst(text));
-    } else {
+    } else if (data.has('second')) {
       setTransformed(capEveryOtherSecond(text));
+    } else {
+      setTransformed(capEveryOtherFirst(text));
     }
   }
 
@@ -71,8 +71,8 @@ const Form = () => {
           Cap every other letter
         </label>
         <label>
-          <input type="checkbox" name="first" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} />
-          Cap the FIRST letter
+          <input type="checkbox" name="second" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} />
+          Cap the SECOND letter
         </label>
 
         <label>
@@ -92,8 +92,6 @@ const Form = () => {
         {/* <CapEveryWordOption selectOption={() => handleOptionClick('Every word')} /> */}
         {/* <SentenceCapsOption selectOption={() => handleOptionClick('Sentence caps')} /> */}
       </form>
-
-      <h2>Selected: {selected}</h2>
 
       <Result transformedText={transformed} />
 
