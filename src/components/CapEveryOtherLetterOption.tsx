@@ -1,11 +1,19 @@
-import { CapEveryOtherLetterOptionProps } from 'types'
+// import { CapEveryOtherLetterOptionProps } from "@/types"
 
-const CapEveryOtherLetterOption = ({ selectOption }: CapEveryOtherLetterOptionProps) => {
-  return (
-    <button type='button' onClick={selectOption}>
-      CapEveryOtherLetter
-    </button>
-  )
-}
+// const CapEveryOtherLetterOption = ({ selectOption }: CapEveryOtherLetterOptionProps) => {
+//   return (
+//     <div>
+//       <button type='button' onClick={selectOption}>
+//         CapEveryOtherLetter
+//       </button>
 
-export default CapEveryOtherLetterOption
+
+//       <label>
+//         <input type="checkbox" name="capSecond" onClick={selectOption} />
+//         Every other SECOND letter
+//       </label>
+//     </div>
+//   )
+// }
+
+// export default CapEveryOtherLetterOption
