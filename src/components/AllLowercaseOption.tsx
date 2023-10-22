@@ -1,11 +1,11 @@
-import { AllLowercaseOptionProps } from 'types'
+// import { AllLowercaseOptionProps } from 'types'
 
-const AllLowercaseOption = ({ selectOption }: AllLowercaseOptionProps) => {
-  return (
-    <button type='button' onClick={selectOption}>
-      AllLowercaseOption
-    </button>
-  )
-}
+// const AllLowercaseOption = ({ selectOption }: AllLowercaseOptionProps) => {
+//   return (
+//     <button type='button' onClick={selectOption}>
+//       AllLowercaseOption
+//     </button>
+//   )
+// }
 
-export default AllLowercaseOption
+// export default AllLowercaseOption

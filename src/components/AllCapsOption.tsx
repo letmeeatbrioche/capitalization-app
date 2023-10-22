@@ -1,11 +1,11 @@
-import { AllCapsOptionProps } from 'types'
+// import { AllCapsOptionProps } from 'types'
 
-const AllCapsOption = ({ selectOption }: AllCapsOptionProps) => {
-  return (
-    <button type='button' onClick={selectOption}>
-      AllCapsOption
-    </button>
-  )
-}
+// const AllCapsOption = ({ selectOption }: AllCapsOptionProps) => {
+//   return (
+//     <button type='button' onClick={selectOption}>
+//       AllCapsOption
+//     </button>
+//   )
+// }
 
-export default AllCapsOption
+// export default AllCapsOption

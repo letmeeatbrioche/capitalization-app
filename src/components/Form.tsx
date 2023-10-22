@@ -1,59 +1,97 @@
 "use client"
 
 import React, { useState } from "react"
-import { AllCapsOption, AllLowercaseOption, CapEveryOtherLetterOption, CapEveryWordOption, Result, SentenceCapsOption } from ".";
-import { allLowerCase, allUpperCase, capEveryOtherFirst, capEveryWord, sentenceCap } from "@/utils";
-
-// Component to take in text from user, take a way to transform the text,
-//  and transform it respectively when the "submit" button is clicked.
+import { Result } from ".";
+import { allLowerCase, allUpperCase, capEveryOtherFirst, capEveryOtherSecond, capEveryWord, sentenceCap } from "@/utils";
 
 const Form = () => {
   const [text, setText] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [selected, setSelected] = useState('');
+  const [checkboxActive, setCheckboxActive] = useState<boolean | undefined>(undefined);
+  const [selected, setSelected] = useState(false);
   const [transformed, setTransformed] = useState('');
+  const [everyOtherLetterSelected, setEveryOtherLetterSelected] = useState(false);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // setSubmitted(false);
     setText(event.currentTarget.value);
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // setSubmitted(true);
     const form = event.target;
     const data = new FormData(form);
-    const textEntry = Object.fromEntries(data.entries());
-    // console.log('form data:', textEntry);
+    const formData = Object.fromEntries(data.entries());
+    // console.log('form data:', formData);
+    // console.log('option:', formData.option);
 
-    if (selected === 'All caps') {setTransformed(allUpperCase(text))}
-    if (selected === 'All lowercase') {setTransformed(allLowerCase(text))}
-    if (selected === 'Every other letter') {setTransformed(capEveryOtherFirst(text))}
-    if (selected === 'Every word') {setTransformed(capEveryWord(text))}
-    if (selected === 'Sentence caps') {setTransformed(sentenceCap(text))}
-
-    // console.log('end of submit handler');
+    if (formData.option === 'All caps') {
+      setTransformed(allUpperCase(text));
+    } else if (formData.option === 'All lowercase') {
+      setTransformed(allLowerCase(text));
+    } else if (formData.option === 'Every word') {
+      setTransformed(capEveryWord(text));
+    } else if (formData.option === 'Sentence caps') {
+      setTransformed(sentenceCap(text));
+    } else if (data.has('second')) {
+      setTransformed(capEveryOtherSecond(text));
+    } else {
+      setTransformed(capEveryOtherFirst(text));
+    }
   }
 
-  const handleOptionClick = (option: string) => {
-    setSelected(option);
+  const handleOptionClick = (option?: string) => {
+    setSelected(true);
+    if (option) {
+      setEveryOtherLetterSelected(true);
+      setCheckboxActive(undefined);
+    } else {
+      setEveryOtherLetterSelected(false);
+      setCheckboxActive(false);
+    }
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input name="userText" value={text} type="text" onChange={handleInputChange} />
+        <input name="userText" value={text} type="text" style={{width: 250}} onChange={handleInputChange} />
 
         <button type="submit" disabled={selected ? false : true}>Transform</button>
 
-        <AllCapsOption selectOption={() => handleOptionClick('All caps')} />
-        <AllLowercaseOption selectOption={() => handleOptionClick('All lowercase')} />
-        <CapEveryOtherLetterOption selectOption={() => handleOptionClick('Every other letter')} />
-        <CapEveryWordOption selectOption={() => handleOptionClick('Every word')} />
-        <SentenceCapsOption selectOption={() => handleOptionClick('Sentence caps')} />
-      </form>
+        <label>
+          <input type="radio" name="option" value="All caps" onChange={() => handleOptionClick()}/>
+          All caps
+        </label>
 
-      <h2>Selected: {selected}</h2>
+        <label>
+          <input type="radio" name="option" value="All lowercase" onChange={() => handleOptionClick()}/>
+          All lowercase
+        </label>
+
+        <label>
+          <input type="radio" name="option" value="Every other letter" onChange={() => handleOptionClick('everyOther')} />
+          Cap every other letter
+        </label>
+        <label>
+          <input type="checkbox" name="second" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} />
+          Cap the SECOND letter
+        </label>
+
+        <label>
+          <input type="radio" name="option" value="Every word" onChange={() => handleOptionClick()}/>
+          Cap every word
+        </label>
+
+        <label>
+          <input type="radio" name="option" value="Sentence caps" onChange={() => handleOptionClick()}/>
+          Sentence caps
+        </label>
+
+        {/* <AllCapsOption selectOption={() => handleOptionClick('All caps')} /> */}
+        {/* <AllLowercaseOption selectOption={() => handleOptionClick('All lowercase')} /> */}
+        {/* <CapEveryOtherLetterOption selectOption={() => handleOptionClick('Every other FIRST letter')} /> */}
+        {/* <CapEveryOtherFirstLetter selectOption={() => handleOptionClick('Every other SECOND letter')} /> */}
+        {/* <CapEveryWordOption selectOption={() => handleOptionClick('Every word')} /> */}
+        {/* <SentenceCapsOption selectOption={() => handleOptionClick('Sentence caps')} /> */}
+      </form>
 
       <Result transformedText={transformed} />
 
