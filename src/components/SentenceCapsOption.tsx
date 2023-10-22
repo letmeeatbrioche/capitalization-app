@@ -1,11 +1,11 @@
-import { SentenceCapsOptionProps } from 'types'
+// import { SentenceCapsOptionProps } from 'types'
 
-const SentenceCapsOption = ({ selectOption }: SentenceCapsOptionProps) => {
-  return (
-    <button type='button' onClick={selectOption}>
-      SentenceCaps
-    </button>
-  )
-}
+// const SentenceCapsOption = ({ selectOption }: SentenceCapsOptionProps) => {
+//   return (
+//     <button type='button' onClick={selectOption}>
+//       SentenceCaps
+//     </button>
+//   )
+// }
 
-export default SentenceCapsOption
+// export default SentenceCapsOption
