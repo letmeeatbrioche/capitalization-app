@@ -1,4 +1,4 @@
-import { TransformedTextProps } from "types"
+import { TransformedTextProps } from "@/types"
 
 const Result = ({ transformedText }: TransformedTextProps) => {
   return (
