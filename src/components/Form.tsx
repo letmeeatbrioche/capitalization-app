@@ -40,11 +40,13 @@ const Form = () => {
 
   const handleOptionClick = (option?: string) => {
     setSelected(true);
-    option ? setEveryOtherLetterSelected(true) : setEveryOtherLetterSelected(false);
-  }
-
-  const handleCheckboxClick = () => {
-    setCheckboxActive(!checkboxActive);
+    if (option) {
+      setEveryOtherLetterSelected(true)
+      setCheckboxActive(undefined);
+    } else {
+      setEveryOtherLetterSelected(false);
+      setCheckboxActive(false);
+    }
   }
 
   return (
@@ -69,7 +71,7 @@ const Form = () => {
           Cap every other letter
         </label>
         <label>
-          <input type="checkbox" name="second" disabled={everyOtherLetterSelected ? false : true} onClick={handleCheckboxClick} />
+          <input type="checkbox" name="second" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} />
           Cap the SECOND letter
         </label>
 
