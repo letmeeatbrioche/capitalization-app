@@ -40,11 +40,7 @@ const Form = () => {
 
   const handleOptionClick = (option?: string) => {
     setSelected(true);
-    if (option) {
-      setEveryOtherLetterSelected(true);
-    } else {
-      setEveryOtherLetterSelected(false);
-    }
+    option ? setEveryOtherLetterSelected(true) : setEveryOtherLetterSelected(false);
   }
 
   const handleCheckboxClick = () => {
