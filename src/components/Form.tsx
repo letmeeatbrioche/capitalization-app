@@ -31,10 +31,10 @@ const Form = () => {
       setTransformed(capEveryWord(text));
     } else if (formData.option === 'Sentence caps') {
       setTransformed(sentenceCap(text));
-    } else if (data.has('second')) {
-      setTransformed(capEveryOtherSecond(text));
-    } else {
+    } else if (data.has('first')) {
       setTransformed(capEveryOtherFirst(text));
+    } else {
+      setTransformed(capEveryOtherSecond(text));
     }
   }
 
@@ -42,11 +42,16 @@ const Form = () => {
     setSelected(true);
     if (option) {
       setEveryOtherLetterSelected(true)
-      setCheckboxActive(undefined);
+      setCheckboxActive(!checkboxActive);
     } else {
       setEveryOtherLetterSelected(false);
       setCheckboxActive(false);
     }
+  }
+
+
+  const handleCheckboxClick = () => {
+    setCheckboxActive(!checkboxActive);
   }
 
   return (
@@ -71,8 +76,8 @@ const Form = () => {
           Cap every other letter
         </label>
         <label>
-          <input type="checkbox" name="second" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} />
-          Cap the SECOND letter
+          <input type="checkbox" name="first" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} onClick={handleCheckboxClick} />
+          Cap the FIRST letter
         </label>
 
         <label>
