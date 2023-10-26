@@ -11,7 +11,7 @@ const Form = () => {
   const [transformed, setTransformed] = useState('');
   const [everyOtherLetterSelected, setEveryOtherLetterSelected] = useState(false);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(event.currentTarget.value);
   }
 
@@ -57,42 +57,44 @@ const Form = () => {
   return (
     <div className="container">
       <form className="form" onSubmit={handleSubmit}>
-        <input className="user-input" name="userText" value={text} type="text" style={{width: 250}} onChange={handleInputChange} />
+        <textarea className="user-input" name="userText" value={text} onChange={(event) => handleInputChange(event)} />
 
         <Result transformedText={transformed} />
 
-        <label>
-          <input className="option" type="radio" name="option" value="All caps" onChange={() => handleOptionClick()}/>
-          All caps
-        </label>
-
-        <label className="down-btn">
-          <input className="option" type="radio" name="option" value="All lowercase" onChange={() => handleOptionClick()}/>
-          All lowercase
-        </label>
-
-        <div className="special-option">
+        <div className="options">
           <label>
-            <input className="option" type="radio" name="option" value="Every other letter" onChange={() => handleOptionClick('everyOther')} />
-              Cap every other letter
+            <input className="option" type="radio" name="option" value="All caps" onChange={() => handleOptionClick()}/>
+            All caps
+          </label>
+
+          <label className="down-btn">
+            <input className="option" type="radio" name="option" value="All lowercase" onChange={() => handleOptionClick()}/>
+            All lowercase
+          </label>
+
+          <div className="special-option">
+            <label>
+              <input className="option" type="radio" name="option" value="Every other letter" onChange={() => handleOptionClick('everyOther')} />
+                Cap every other letter
+            </label>
+
+            <label>
+              <input className="checkbox" type="checkbox" name="first" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} onClick={handleCheckboxClick} />
+              Cap the FIRST letter
+            </label>
+          </div>
+
+
+          <label className="down-btn">
+            <input className="option" type="radio" name="option" value="Every word" onChange={() => handleOptionClick()}/>
+            Cap every word
           </label>
 
           <label>
-            <input className="checkbox" type="checkbox" name="first" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} onClick={handleCheckboxClick} />
-            Cap the FIRST letter
+            <input className="option" type="radio" name="option" value="Sentence caps" onChange={() => handleOptionClick()}/>
+            Sentence caps
           </label>
         </div>
-
-
-        <label className="down-btn">
-          <input className="option" type="radio" name="option" value="Every word" onChange={() => handleOptionClick()}/>
-          Cap every word
-        </label>
-
-        <label>
-          <input className="option" type="radio" name="option" value="Sentence caps" onChange={() => handleOptionClick()}/>
-          Sentence caps
-        </label>
 
         <button className="transform" type="submit" disabled={selected ? false : true}>Transform</button>
 
