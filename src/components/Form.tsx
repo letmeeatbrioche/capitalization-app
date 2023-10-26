@@ -55,40 +55,46 @@ const Form = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input name="userText" value={text} type="text" style={{width: 250}} onChange={handleInputChange} />
+    <div className="container">
+      <form className="form" onSubmit={handleSubmit}>
+        <input className="user-input" name="userText" value={text} type="text" style={{width: 250}} onChange={handleInputChange} />
 
-        <button type="submit" disabled={selected ? false : true}>Transform</button>
+        <Result transformedText={transformed} />
 
         <label>
-          <input type="radio" name="option" value="All caps" onChange={() => handleOptionClick()}/>
+          <input className="option" type="radio" name="option" value="All caps" onChange={() => handleOptionClick()}/>
           All caps
         </label>
 
-        <label>
-          <input type="radio" name="option" value="All lowercase" onChange={() => handleOptionClick()}/>
+        <label className="down-btn">
+          <input className="option" type="radio" name="option" value="All lowercase" onChange={() => handleOptionClick()}/>
           All lowercase
         </label>
 
-        <label>
-          <input type="radio" name="option" value="Every other letter" onChange={() => handleOptionClick('everyOther')} />
-          Cap every other letter
-        </label>
-        <label>
-          <input type="checkbox" name="first" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} onClick={handleCheckboxClick} />
-          Cap the FIRST letter
-        </label>
+        <div className="special-option">
+          <label>
+            <input className="option" type="radio" name="option" value="Every other letter" onChange={() => handleOptionClick('everyOther')} />
+              Cap every other letter
+          </label>
 
-        <label>
-          <input type="radio" name="option" value="Every word" onChange={() => handleOptionClick()}/>
+          <label>
+            <input className="checkbox" type="checkbox" name="first" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} onClick={handleCheckboxClick} />
+            Cap the FIRST letter
+          </label>
+        </div>
+
+
+        <label className="down-btn">
+          <input className="option" type="radio" name="option" value="Every word" onChange={() => handleOptionClick()}/>
           Cap every word
         </label>
 
         <label>
-          <input type="radio" name="option" value="Sentence caps" onChange={() => handleOptionClick()}/>
+          <input className="option" type="radio" name="option" value="Sentence caps" onChange={() => handleOptionClick()}/>
           Sentence caps
         </label>
+
+        <button className="transform" type="submit" disabled={selected ? false : true}>Transform</button>
 
         {/* <AllCapsOption selectOption={() => handleOptionClick('All caps')} /> */}
         {/* <AllLowercaseOption selectOption={() => handleOptionClick('All lowercase')} /> */}
@@ -98,7 +104,6 @@ const Form = () => {
         {/* <SentenceCapsOption selectOption={() => handleOptionClick('Sentence caps')} /> */}
       </form>
 
-      <Result transformedText={transformed} />
 
     </div>
   )
