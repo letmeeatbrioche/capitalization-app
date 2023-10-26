@@ -3,7 +3,7 @@ import { TransformedTextProps } from "@/types"
 const Result = ({ transformedText }: TransformedTextProps) => {
   return (
     <div className="result">
-      Result: {transformedText}
+      {transformedText}
     </div>
   )
 }
