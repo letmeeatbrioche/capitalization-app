@@ -70,7 +70,7 @@ const Form = () => {
           <label className="down-btn" htmlFor="lowercase">All lowercase</label>
 
           <div className="special-option">
-              <input className="option" type="radio" name="option" value="Every other letter" id="every-other-letter" onChange={() => handleOptionClick('special')} />
+              <input className="option every-other-letter" type="radio" name="option" value="Every other letter" id="every-other-letter" onChange={() => handleOptionClick('special')} />
               <label htmlFor="every-other-letter">Cap every other letter</label>
 
               <label className="checkbox-label" htmlFor="checkbox" style={{cursor: everyOtherLetterSelected ? 'pointer' : undefined}}>
