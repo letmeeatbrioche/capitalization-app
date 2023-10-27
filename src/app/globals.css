@@ -47,8 +47,11 @@ table {
 	border-spacing: 0;
 }
 
+
+
 /* MY STYLES */
 body {
+   background-color: rgb(195, 210, 223);
    font-family: sans-serif;
 }
 
@@ -56,8 +59,8 @@ body {
    max-width: 960px;
    margin: 40px auto;
    height: 90vh;
+   border: 2px black solid;
    /* background-color: lightgray; */
-   /* border: 1px skyblue solid; */
    /* color: white; */
  }
 
