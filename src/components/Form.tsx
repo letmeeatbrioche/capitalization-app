@@ -90,7 +90,6 @@ const Form = () => {
         </div>
 
         <button className="transform" type="submit" disabled={selected ? false : true} style={{backgroundColor: !selected && 'rgb(149, 167, 185)', color: !selected && 'rgb(242, 242, 242)', border: !selected && '2px solid rgb(115, 115, 115)'}}>Transform</button>
-        {/* style={{backgroundColor: 'rgb(149, 167, 185)', color: 'rgb(242, 242, 242)', border: '2px solid rgb(115, 115, 115)'}} */}
 
         {/* <AllCapsOption selectOption={() => handleOptionClick('All caps')} /> */}
         {/* <AllLowercaseOption selectOption={() => handleOptionClick('All lowercase')} /> */}
