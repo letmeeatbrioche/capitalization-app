@@ -73,8 +73,8 @@ const Form = () => {
               <input className="option" type="radio" name="option" value="Every other letter" id="every-other-letter" onChange={() => handleOptionClick('special')} />
               <label htmlFor="every-other-letter">Cap every other letter</label>
 
-              <label className="checkbox-label" htmlFor="checkbox">
-                <input className="checkbox" type="checkbox" name="first" id="checkbox" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} onClick={handleCheckboxClick} />
+              <label className="checkbox-label" htmlFor="checkbox" style={{cursor: everyOtherLetterSelected ? 'pointer' : undefined}}>
+                <input className="checkbox" type="checkbox" name="first" id="checkbox" disabled={everyOtherLetterSelected ? false : true}  checked={checkboxActive} onClick={handleCheckboxClick} />
                 Cap the FIRST letter
               </label>
           </div>
