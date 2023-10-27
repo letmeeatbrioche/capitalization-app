@@ -70,28 +70,32 @@ body {
    display: grid;
    grid-template-columns: repeat(7, 14.3%);
    grid-template-rows: 3fr 3% 1fr 1fr;
+   height: 100%;
+   width: 100%;
    /* margin-bottom: 0; */
    /* padding: 10px; */
    /* padding-bottom: 0; */
    /* gap: 10px; */
-   height: 100%;
    /* border: 1px skyblue solid; */
-   width: 100%;
  }
 
  .user-input {
    background-color: cyan;
    grid-column: 1 / span 3;
-   /* width: 450px; */
+   width: 110%;
  }
 
  .result {
    background-color: gold;
    grid-column: 5 / span 3;
+   border: 2px solid black;
+   right: 49px;
+   position: relative;
+   width: 110%;
+   /* padding-right: 49px; */
    /* grid-column-start: 5; */
    /* grid-column-end: 8; */
    /* width: 450px; */
-   border: 2px solid black;
    /* justify-self: end; */
  }
 
