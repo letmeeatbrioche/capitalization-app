@@ -139,12 +139,15 @@ textarea, button {
    display: none;
  }
 
+ .option:checked + label {
+   background-color: lightpink;
+ }
+
  .special-option {
    display: grid;
    grid-column: 4 / span 1;
    justify-self: center;
  }
-
 
  .transform {
    background-color: aquamarine;
