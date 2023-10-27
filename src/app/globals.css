@@ -50,9 +50,15 @@ table {
 
 
 /* MY STYLES */
+textarea, button {
+   font-size: inherit;
+}
+
 body {
    background-color: rgb(195, 210, 223);
    font-family: sans-serif;
+   font-size: 18px;
+   line-height: 24px;
 }
 
  .container {
@@ -83,15 +89,23 @@ body {
    background-color: cyan;
    grid-column: 1 / span 3;
    width: 110%;
+   border: 2px solid black;
+   border-radius: 23px;
+   padding: 10px;
  }
 
- .result {
+.result {
    background-color: gold;
    grid-column: 5 / span 3;
    border: 2px solid black;
    right: 49px;
    position: relative;
    width: 110%;
+   border-radius: 23px;
+   padding: 10px;
+   max-height: 423.2px;
+   overflow: auto;
+   word-wrap: break-word;
    /* padding-right: 49px; */
    /* grid-column-start: 5; */
    /* grid-column-end: 8; */
