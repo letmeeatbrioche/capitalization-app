@@ -62,38 +62,30 @@ const Form = () => {
         <Result transformedText={transformed} />
 
         <div className="options">
-          <label>
-            <input className="option" type="radio" name="option" value="All caps" onChange={() => handleOptionClick()}/>
-            All caps
-          </label>
+          <input className="option" type="radio" name="option" value="All caps" id="all-caps" onChange={() => handleOptionClick()}/>
+          <label htmlFor="all-caps" >All caps</label>
 
-          <label className="down-btn">
-            <input className="option" type="radio" name="option" value="All lowercase" onChange={() => handleOptionClick()}/>
-            All lowercase
-          </label>
+
+          <input className="option" type="radio" name="option" value="All lowercase" id="lowercase" onChange={() => handleOptionClick()}/>
+          <label className="down-btn" htmlFor="lowercase">All lowercase</label>
 
           <div className="special-option">
-            <label>
-              <input className="option" type="radio" name="option" value="Every other letter" onChange={() => handleOptionClick('everyOther')} />
-                Cap every other letter
-            </label>
+              <input className="option" type="radio" name="option" value="Every other letter" id="every-other-letter" onChange={() => handleOptionClick('special')} />
+              <label htmlFor="every-other-letter">Cap every other letter</label>
 
-            <label>
-              <input className="checkbox" type="checkbox" name="first" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} onClick={handleCheckboxClick} />
-              Cap the FIRST letter
-            </label>
+
+              <input className="checkbox" type="checkbox" name="first" id="checkbox" disabled={everyOtherLetterSelected ? false : true} checked={checkboxActive} onClick={handleCheckboxClick} />
+              <label htmlFor="checkbox">Cap the FIRST letter</label>
           </div>
 
 
-          <label className="down-btn">
-            <input className="option" type="radio" name="option" value="Every word" onChange={() => handleOptionClick()}/>
-            Cap every word
-          </label>
 
-          <label>
-            <input className="option" type="radio" name="option" value="Sentence caps" onChange={() => handleOptionClick()}/>
-            Sentence caps
-          </label>
+          <input className="option" type="radio" name="option" value="Every word" id="every-word" onChange={() => handleOptionClick()}/>
+          <label className="down-btn" htmlFor="every-word">Cap every word</label>
+
+
+          <input className="option" type="radio" name="option" value="Sentence caps" id="sentence" onChange={() => handleOptionClick()}/>
+          <label htmlFor="sentence">Sentence caps</label>
         </div>
 
         <button className="transform" type="submit" disabled={selected ? false : true}>Transform</button>
