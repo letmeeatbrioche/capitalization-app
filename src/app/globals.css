@@ -99,7 +99,7 @@ textarea, button {
 }
 
 .result {
-   background-color: rgb(237, 246, 255);;
+   background-color: rgb(242, 248, 255);;
    grid-column: 5 / span 3;
    border: 2px solid black;
    right: 42px;
