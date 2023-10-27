@@ -59,13 +59,14 @@ body {
    max-width: 960px;
    margin: 40px auto;
    height: 90vh;
-   border: 2px black solid;
+   background-color: rgb(195, 210, 223);
+   /* border: 2px black solid; */
    /* background-color: lightgray; */
    /* color: white; */
  }
 
  .form {
-   background-color: skyblue;
+   background-color: rgb(195, 210, 223);
    display: grid;
    grid-template-columns: repeat(7, 14.3%);
    grid-template-rows: 3fr 3% 1fr 1fr;
