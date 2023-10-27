@@ -49,6 +49,8 @@ table {
 
 
 
+
+
 /* MY STYLES */
 body {
    background-color: rgb(195, 210, 223);
@@ -71,7 +73,7 @@ textarea, button {
    /* color: white; */
  }
 
- .form {
+.form {
    background-color: inherit;
    display: grid;
    grid-template-columns: repeat(7, 14.3%);
@@ -83,9 +85,9 @@ textarea, button {
    /* padding-bottom: 0; */
    /* gap: 10px; */
    /* border: 1px skyblue solid; */
- }
+}
 
- .user-input {
+.user-input {
    background-color: rgb(213, 229, 244);;
    grid-column: 1 / span 3;
    width: 105%;
@@ -93,9 +95,9 @@ textarea, button {
    border-radius: 23px;
    padding: 10px;
    font-size: inherit;
- }
+}
 
- .result {
+.result {
    background-color: rgb(213, 229, 244);;
    grid-column: 5 / span 3;
    border: 2px solid black;
@@ -108,48 +110,66 @@ textarea, button {
    overflow: auto;
    word-wrap: break-word;
    font-size: inherit;
- }
+}
 
- label {
-   justify-self: center;
-   cursor: pointer;
-   height: 1rem;
-   padding: 8px 14px 13px 14px;
-   /* padding-bottom: 13px; */
-   border-radius: 2rem;
-   border: 2px solid black;
-   width: 200px;
-   text-align: center;
-   background-color: rgb(213, 229, 244);
-   font-size: 17px;
- }
-
- label:hover {
-   background-color: rgb(199, 211, 255);
- }
-
- .options {
+.options {
    display: flex;
    width: 100%;
    grid-column: 1 / span 7;
    grid-row-start: 3;
- }
+}
 
- .option {
+label:not(.checkbox-label) {
+   justify-self: center;
+   cursor: pointer;
+   height: 1rem;
+   padding: 8px 14px 13px 14px;
+   border-radius: 2rem;
+   border: 2px solid black;
+   width: 200px;
+   text-align: center;
+   background-color: rgb(205, 220, 237);
+   font-size: 17px;
+}
+
+.checkbox-label {
+   justify-self: center;
+   cursor: pointer;
+   height: 1rem;
+   padding: 8px 0px 13px 0px;
+   border-radius: 2rem;
+   width: 200px;
+   text-align: center;
+   font-size: 17px;
+   position: relative;
+   top: -25px;
+}
+
+label:hover:not(.checkbox-label) {
+   background-color: rgb(226, 236, 246);
+}
+
+label:has(.checkbox:checked) {
+   background-color: rgb(199, 211, 255);
+   border: 2px solid black;
+}
+
+.option {
    display: none;
- }
+}
 
- .option:checked + label {
-   background-color: lightpink;
- }
+.option:checked + label {
+   background-color: rgb(199, 211, 255);
 
- .special-option {
+}
+
+.special-option {
    display: grid;
    grid-column: 4 / span 1;
    justify-self: center;
- }
+}
 
- .transform {
+.transform {
    background-color: aquamarine;
    grid-column: 4 / span 1;
    border-radius: 96px;
@@ -160,10 +180,10 @@ textarea, button {
    grid-row-start: 4;
    align-self: center;
    font-size: 17.5px;
- }
+}
 
- .down-btn {
+.down-btn {
    align-self: end;
- }
+}
 
 
