@@ -50,10 +50,6 @@ table {
 
 
 /* MY STYLES */
-textarea, button {
-   font-size: inherit;
-}
-
 body {
    background-color: rgb(195, 210, 223);
    font-family: sans-serif;
@@ -61,18 +57,22 @@ body {
    line-height: 24px;
 }
 
+textarea, button {
+   font-size: inherit;
+   font-family: inherit;
+}
  .container {
    max-width: 960px;
    margin: 40px auto;
    height: 90vh;
-   background-color: rgb(195, 210, 223);
+   background-color: inherit;
    /* border: 2px black solid; */
    /* background-color: lightgray; */
    /* color: white; */
  }
 
  .form {
-   background-color: rgb(195, 210, 223);
+   background-color: inherit;
    display: grid;
    grid-template-columns: repeat(7, 14.3%);
    grid-template-rows: 3fr 3% 1fr 1fr;
@@ -86,43 +86,46 @@ body {
  }
 
  .user-input {
-   background-color: cyan;
+   background-color: rgb(213, 229, 244);;
    grid-column: 1 / span 3;
-   width: 110%;
+   width: 105%;
    border: 2px solid black;
    border-radius: 23px;
    padding: 10px;
+   font-size: inherit;
  }
 
-.result {
-   background-color: gold;
+ .result {
+   background-color: rgb(213, 229, 244);;
    grid-column: 5 / span 3;
    border: 2px solid black;
-   right: 49px;
+   right: 42px;
    position: relative;
-   width: 110%;
+   width: 105%;
    border-radius: 23px;
    padding: 10px;
    max-height: 423.2px;
    overflow: auto;
    word-wrap: break-word;
-   /* padding-right: 49px; */
-   /* grid-column-start: 5; */
-   /* grid-column-end: 8; */
-   /* width: 450px; */
-   /* justify-self: end; */
+   font-size: inherit;
  }
 
  label {
    justify-self: center;
    cursor: pointer;
-   background-color: lightpink;
    height: 1rem;
-   padding: 8px 14px;
-   border-radius: 1rem;
+   padding: 8px 14px 13px 14px;
+   /* padding-bottom: 13px; */
+   border-radius: 2rem;
    border: 2px solid black;
    width: 200px;
    text-align: center;
+   background-color: rgb(213, 229, 244);
+   font-size: 17px;
+ }
+
+ label:hover {
+   background-color: rgb(199, 211, 255);
  }
 
  .options {
@@ -140,7 +143,6 @@ body {
    display: grid;
    grid-column: 4 / span 1;
    justify-self: center;
-   /* position: relative; */
  }
 
 
@@ -154,6 +156,7 @@ body {
    justify-self: center;
    grid-row-start: 4;
    align-self: center;
+   font-size: 17.5px;
  }
 
  .down-btn {
