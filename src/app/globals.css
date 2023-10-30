@@ -55,9 +55,10 @@ table {
 body {
    /* background-color: rgb(222, 239, 255); */
    background-color: rgb(213, 227, 241);
-   font-family: sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
    font-size: 18px;
    line-height: 24px;
+   background-image: url('../public/assets/CAPITALIZATION.png');
 }
 
 textarea, button {
@@ -65,13 +66,31 @@ textarea, button {
    font-family: inherit;
 }
  .container {
-   max-width: 960px;
+   max-width: 980px;
    margin: 40px auto;
    height: 90vh;
-   background-color: inherit;
+   /* z-index: 10; */
+   background-color: rgb(213, 227, 241);
+   padding: 10px;
+   border-radius: 20px;
+   box-shadow: 0px 0px 20px 4px rgba(170, 178, 255, 0.5);
+   /* box-shadow: 0px 0px 5px 5px rgba(213, 227, 241); */
+   /* border: 1px solid #AAB2FF; */
    /* border: 2px black solid; */
    /* background-color: lightgray; */
    /* color: white; */
+ }
+
+ .header {
+   text-align: center;
+   font-weight: 900;
+   font-size: 400px;
+   word-wrap: break-word;
+   display: block;
+   /* height: 100vh; */
+   /* width: 100vw; */
+   /* position: relative; */
+   /* z-index: -1; */
  }
 
 .form {
