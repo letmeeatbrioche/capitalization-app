@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <div>
       <Form />
-      <h3>{selected}</h3>
     </div>
   )
 }
