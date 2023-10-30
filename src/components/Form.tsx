@@ -63,26 +63,26 @@ const Form = () => {
 
         <div className="options">
           <input className="option" type="radio" name="option" value="All caps" id="all-caps" onChange={() => handleOptionClick()}/>
-          <label htmlFor="all-caps" >All caps</label>
+          <label htmlFor="all-caps" >ALL CAPS</label>
 
 
           <input className="option" type="radio" name="option" value="All lowercase" id="lowercase" onChange={() => handleOptionClick()}/>
-          <label className="down-btn" htmlFor="lowercase">All lowercase</label>
+          <label className="down-btn" htmlFor="lowercase">lowercase</label>
 
           <div className="special-option">
               <input className="option every-other-letter" type="radio" name="option" value="Every other letter" id="every-other-letter" onChange={() => handleOptionClick('special')} />
-              <label htmlFor="every-other-letter">Cap every other letter</label>
+              <label htmlFor="every-other-letter">Every other letter</label>
 
               <label className="checkbox-label" htmlFor="checkbox" style={{cursor: everyOtherLetterSelected ? 'pointer' : undefined}}>
                 <input className="checkbox" type="checkbox" name="first" id="checkbox" disabled={everyOtherLetterSelected ? false : true}  checked={checkboxActive} onClick={handleCheckboxClick} />
-                Cap the FIRST letter
+                Cap. the FIRST letter
               </label>
           </div>
 
 
 
           <input className="option" type="radio" name="option" value="Every word" id="every-word" onChange={() => handleOptionClick()}/>
-          <label className="down-btn" htmlFor="every-word">Cap every word</label>
+          <label className="down-btn" htmlFor="every-word">Every Word</label>
 
 
           <input className="option" type="radio" name="option" value="Sentence caps" id="sentence" onChange={() => handleOptionClick()}/>
