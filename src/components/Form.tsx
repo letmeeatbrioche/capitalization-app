@@ -17,7 +17,7 @@ const Form = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target;
+    const form = event.currentTarget;
     const data = new FormData(form);
     const formData = Object.fromEntries(data.entries());
     // console.log('form data:', formData);
