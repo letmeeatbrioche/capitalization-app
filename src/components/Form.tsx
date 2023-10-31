@@ -1,6 +1,5 @@
 "use client"
-
-import React, { useState } from "react"
+import React, { useState, CSSProperties } from "react"
 import { Result } from ".";
 import { allLowerCase, allUpperCase, capEveryOtherFirst, capEveryOtherSecond, capEveryWord, sentenceCap } from "@/utils";
 
@@ -10,6 +9,11 @@ const Form = () => {
   const [selected, setSelected] = useState(false);
   const [transformed, setTransformed] = useState('');
   const [everyOtherLetterSelected, setEveryOtherLetterSelected] = useState(false);
+  const disabledTransformStyles: CSSProperties = {
+    backgroundColor: 'rgb(149, 167, 185)',
+    color: 'rgb(242, 242, 242)',
+    border: '2px solid rgb(115, 115, 115)'
+  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(event.currentTarget.value);
@@ -89,7 +93,7 @@ const Form = () => {
           <label htmlFor="sentence">Sentence caps</label>
         </div>
 
-        <button className="transform" type="submit" disabled={selected ? false : true} style={{backgroundColor: !selected && 'rgb(149, 167, 185)', color: !selected && 'rgb(242, 242, 242)', border: !selected && '2px solid rgb(115, 115, 115)'}}>Transform</button>
+        <button className="transform" type="submit" disabled={selected ? false : true} style={!selected ? disabledTransformStyles : undefined}>Transform</button>
 
         {/* <AllCapsOption selectOption={() => handleOptionClick('All caps')} /> */}
         {/* <AllLowercaseOption selectOption={() => handleOptionClick('All lowercase')} /> */}
