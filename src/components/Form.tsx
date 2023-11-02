@@ -61,7 +61,7 @@ const Form = () => {
   return (
     <div className="container">
       <form className="form" onSubmit={handleSubmit}>
-        <textarea className="user-input" name="userText" value={text} onChange={(event) => handleInputChange(event)} />
+        <textarea className="user-input" name="userText" placeholder="Add your text..." value={text} onChange={(event) => handleInputChange(event)} />
 
         <Result transformedText={transformed} />
 
