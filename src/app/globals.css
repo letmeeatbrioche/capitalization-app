@@ -50,3 +50,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* MY STYLES */
+
+body {
+	background-image: url('../public/assets/CAPITALIZATION.png');
+}
+
+.option:checked + label {
+	background-color: rgb(199, 211, 255);
+}
