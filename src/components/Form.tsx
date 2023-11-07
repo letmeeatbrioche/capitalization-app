@@ -61,7 +61,7 @@ const Form = () => {
   return (
     <div className="container shadow-container-shadow z-50 bg-[#d5e3f1] rounded-[20px] max-w-[980px] my-[40px] mx-auto h-[90vh] p-2.5">
       <form className="form bg-[#d5e3f1] grid grid-cols-7 grid-rows-[3fr_3%_1fr_1fr] h-full w-full" onSubmit={handleSubmit}>
-        <textarea className="user-input font-arial-sans text-[18px] bg-[rgb(242, 248, 255)] border-2 border-black border-solid rounded-[23px] col-[1_/_span_3] w-[105%] p-2.5" name="userText" value={text} onChange={(event) => handleInputChange(event)} />
+        <textarea className="user-input font-arial-sans text-[18px] bg-[rgb(242, 248, 255)] border-2 border-black border-solid rounded-[23px] col-[1_/_span_3] w-[105%] p-2.5" name="userText" placeholder="Add your text..." value={text} onChange={(event) => handleInputChange(event)} />
 
         <Result transformedText={transformed} />
 
@@ -77,7 +77,7 @@ const Form = () => {
               <input className="option every-other-letter hidden" type="radio" name="option" value="Every other letter" id="every-other-letter" onChange={() => handleOptionClick('special')} />
               <label htmlFor="every-other-letter" className="cursor-pointer bg-[#deefff] hover:bg-[#e2ecf6] h-8 w-[200px] p-label-padding text-[17px] border-2 border-black border-solid rounded-[2rem] text-center justify-self-center order-1">Every other letter</label>
 
-              <label className="checkbox-label relative -top-[25px] h-8  p-checkbox-padding text-[17px] rounded-[2rem] text-center justify-self-center order-2" htmlFor="checkbox" style={{cursor: everyOtherLetterSelected ? 'pointer' : undefined, backgroundColor: checkboxActive ? '#c7d3ff' : 'transparent', border: checkboxActive ? 'solid 2px black': 'none'}}>
+              <label className="checkbox-label relative -top-[25px] h-8 p-checkbox-padding text-[17px] rounded-[2rem] text-center justify-self-center order-2" htmlFor="checkbox" style={{cursor: everyOtherLetterSelected ? 'pointer' : undefined, backgroundColor: checkboxActive ? '#c7d3ff' : 'transparent', border: checkboxActive ? 'solid 2px black': 'none'}}>
                 <input className="checkbox" type="checkbox" name="first" id="checkbox" disabled={everyOtherLetterSelected ? false : true}  checked={checkboxActive} onClick={handleCheckboxClick} />
                 Cap. the FIRST letter
               </label>
