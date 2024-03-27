@@ -54,9 +54,15 @@ table {
 /* MY STYLES */
 
 body {
-	background-image: url('../public/assets/CAPITALIZATION.png');
+	/* background-image: url('../public/assets/CAPITALIZATION.png'); */
+	background-color: #FFC914;
+	color: #2E282A;
 }
 
 .option:checked + label {
 	background-color: rgb(199, 211, 255);
+}
+
+.options {
+	justify-content: space-evenly;
 }
