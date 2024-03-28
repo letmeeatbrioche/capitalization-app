@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <div>
-        <h1 className="header text-8xl text-center font-black text-[#E4572E]">CAPi</h1>
+        <h1 className="header text-8xl text-center font-black text-[#E4572E] mt-10">CAPi</h1>
       </div>
       <Form />
     </>
