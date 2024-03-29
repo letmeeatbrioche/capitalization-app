@@ -9,6 +9,7 @@ const Form = () => {
   const [selected, setSelected] = useState(false);
   const [transformed, setTransformed] = useState('');
   const [everyOtherLetterSelected, setEveryOtherLetterSelected] = useState(false);
+  const [copyButtonText, setCopyButtonText] = useState('Copy Text');
   const disabledTransformStyles: CSSProperties = {
     backgroundColor: 'rgb(149, 167, 185)',
     color: 'rgb(242, 242, 242)',
@@ -69,7 +70,7 @@ const Form = () => {
     // container shadow-container-shadow z-50 bg-[#d5e3f1] rounded-[20px] max-w-[980px] my-[40px] mx-auto h-[90vh] p-2.5
     <div className="h-screen w-screen">
       {/* <form className="shadow-container-shadow rounded-[20px] my-[10px] mx-auto w-11/12 form bg-[#d5e3f1] grid grid-cols-7 grid-rows-[3fr_3%_1fr_1fr] h-full p-2.5" onSubmit={handleSubmit}></form> */}
-      <form className="h-screen max-w-[95%] sm:max-w-[90%] md:max-w-[70%] lg:max-w-[60%] my-0 mx-auto form bg-[#FFC914] p-2.5 mt-12" onSubmit={handleSubmit}>
+      <form className="h-screen max-w-[95%] sm:max-w-[90%] md:max-w-[70%] lg:max-w-[60%] my-8 mx-auto form bg-[#FFC914] p-2.5" onSubmit={handleSubmit}>
         <textarea className="min-h-[113px] h-auto user-input font-arial-sans text-[18px] bg-[rgb(242, 248, 255)] border-2 border-black border-solid rounded-[23px] p-2.5 w-full" name="userText" placeholder="Add your text..." value={text} onChange={(event) => handleInputChange(event)} />
 
         <div className="options flex flex-wrap max-w-[664px] space-y-4  my-0 mx-auto ">
@@ -101,9 +102,9 @@ const Form = () => {
 
         </div>
 
-        <button className="mt-[5px] mb-[25px] w-full transform font-arial-sans bg-[#3777FF] border-2 border-black border-solid rounded-[96px] col-[4_/_span_1] h-[75px] row-start-4 self-center text-[17.5px] text-white font-semibold uppercase justify-self-center" type="submit" disabled={selected ? false : true} style={!selected ? disabledTransformStyles : undefined}>Transform</button>
+        <button className="mt-[5px] mb-[25px] w-full transform font-arial-sans bg-[#3777FF] border-2 border-black border-solid rounded-[96px] col-[4_/_span_1] h-[75px] row-start-4 self-center text-[17.5px] text-white font-semibold uppercase justify-self-center" type="submit" onClick={() => setCopyButtonText('Copy Text')} disabled={selected ? false : true} style={!selected ? disabledTransformStyles : undefined}>Transform</button>
 
-        <Result transformedText={transformed} />
+        <Result transformedText={transformed} copyButtonText={copyButtonText} setCopyButtonText={setCopyButtonText} />
 
         {/* <AllCapsOption selectOption={() => handleOptionClick('All caps')} /> */}
         {/* <AllLowercaseOption selectOption={() => handleOptionClick('All lowercase')} /> */}
