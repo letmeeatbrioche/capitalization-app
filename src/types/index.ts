@@ -21,5 +21,7 @@ export interface SentenceCapsOptionProps {
 }
 
 export interface TransformedTextProps {
-  transformedText: string
+  transformedText: string,
+  copyButtonText: string,
+  setCopyButtonText: (value: string) => void
 }
