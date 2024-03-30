@@ -40,7 +40,8 @@
       "@/types/*": [
         "types/*"
       ]
-    }
+    },
+    "useUnknownInCatchVariables": false
   },
   "include": [
     "next-env.d.ts",
@@ -51,5 +52,4 @@
   "exclude": [
     "node_modules"
   ],
-  "useUnknownInCatchVariables": false
 }
